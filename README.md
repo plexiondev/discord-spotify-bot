@@ -15,6 +15,8 @@ the bot grabs it's data from [snip](https://github.com/dlrudie/Snip) - a simple 
 
 spotify will randomly not update it's window title and will render snip useless in grabbing song info - pause and unpause to fix.
 
+a time elapsed is also calculated since the script was ran and will count up every second. it will pause and unpause based on your music.
+
 ## install
 
 ### initial
@@ -34,6 +36,8 @@ spotify will randomly not update it's window title and will render snip useless 
 4. assuming you already have [**snip** set-up](https://github.com/dlrudie/Snip), put your bot's files into the same directory for ease of access
 5. then you should be able to run both `Snip.exe` and `main.py` and get everything working
 
+to enable the time elapsed counter, head into the `config.json` and set `expose_listening` to `true`. restarting will apply the settings and show `Listening for x since x` when running `/song`
+
 ## issues
 
 **error: `discord.errors.Forbidden: 403 Forbidden (error code: 50001): Missing Access`**
@@ -45,6 +49,24 @@ ensure you ticked `applications.commands` in the dev portal when adding your bot
 **it won't update**
 * try pausing and un-pausing to get snip to update
 * close and re-open snip to re-authorise with spotify
+
+---
+
+**error: `discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction`**
+
+check your computer is not running behind. either that or discord's servers may be dying - who knows.
+
+---
+
+**wrong cover art**
+
+this is a known issue with local files that will need to be fixed on snip's end. the cover art will be cleared when pausing & unpausing though.
+
+---
+
+**still showing song title when paused**
+
+this once again appears to be an issue with local files and is out of my control (lies on snip/spotify's end)
 
 ## last
 
