@@ -3,5 +3,7 @@
     "servers": [],
 
     "directory": "",
-    "cmd_description": "sends the current song info"
+    "cmd_description": "sends the current song info",
+    
+    "expose_listening": "false"
 }
