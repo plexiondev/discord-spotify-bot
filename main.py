@@ -47,7 +47,6 @@ async def on_ready():
                         activity = discord.Activity(type=discord.ActivityType.listening, name=song)
                     else:
                         activity = discord.Activity(type=discord.ActivityType.listening, name="nothing")
-                        time_listening = 0
                     await bot.change_presence(activity=activity)
                     print (f"new song! {song}")
                 
