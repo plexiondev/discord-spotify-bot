@@ -5,6 +5,10 @@ from discord_slash import SlashCommand
 import json
 import asyncio
 import datetime
+# custom colours in terminal
+from colorama import init
+from colorama import Fore, Back, Style
+init()
 
 # config
 file = open("config.json","r")
@@ -28,7 +32,7 @@ restart_time = restart.strftime("%H:%M:%S")
 @bot.event
 async def on_ready():
     global time_listening
-    print ("\nready!\n")
+    print (f"{Back.GREEN}{Style.BRIGHT}[READY]{Style.RESET_ALL} Signed in as {bot.user}")
     
     with open(f"{directory}Snip.txt", encoding="utf8") as file:
         song = file.readline()
@@ -48,7 +52,7 @@ async def on_ready():
                     else:
                         activity = discord.Activity(type=discord.ActivityType.listening, name="nothing")
                     await bot.change_presence(activity=activity)
-                    print (f"new song! {song}")
+                    print (f"{Back.GREEN}{Style.BRIGHT}[SONG]{Style.RESET_ALL}  {song}")
                 
                 if song != "":
                     time_listening += 1
@@ -56,7 +60,7 @@ async def on_ready():
                 temp = song
         except FileNotFoundError:
             # pass (ignore) if error but log to console
-            print (f"[ERROR] 'Snip.txt' not found in {directory}, check your Snip installation and try again")
+            print (f"{Back.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} 'Snip.txt' not found in {directory}, check your Snip installation and try again.")
             pass
         
         # await sleep
@@ -67,6 +71,8 @@ async def on_ready():
 @slash.slash(name="song",description=cmd_description,guild_ids=servers)
 async def song(ctx):
     global time_listening
+    
+    print (f"{Back.GREEN}{Style.BRIGHT}[CMD]{Style.RESET_ALL}   Sent /song output via user request.")
     
     # update
     with open(f"{directory}Snip_Track.txt", encoding="utf8") as file:
