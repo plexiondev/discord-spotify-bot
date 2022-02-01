@@ -19,6 +19,12 @@ a time elapsed is also calculated since the script was ran and will count up eve
 
 ## install
 
+### requirements
+
+- installed `discord`
+- installed `discord_slash`
+- installed `colorama` (2022.0201 +)
+
 ### initial
 1. download the latest release and extract wherever you want, this will be the working directory for running your bot.
 2. head to the [discord dev portal](https://discord.com/developers/applications) and create an application
