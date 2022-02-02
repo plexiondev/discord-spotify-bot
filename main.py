@@ -11,8 +11,12 @@ from colorama import Fore, Back, Style
 init()
 
 # config
-file = open("config.json","r")
-json = json.loads(file.read())
+try:
+    file = open("config.json","r")
+    json = json.loads(file.read())
+except FileNotFoundError:
+    print (f"{Back.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} No configuration file found (config.json), ensure it is located in the same directory.")
+    exit()
 
 token = json["token"]
 servers = json["servers"]
@@ -34,9 +38,12 @@ async def on_ready():
     global time_listening
     print (f"{Back.GREEN}{Style.BRIGHT}[READY]{Style.RESET_ALL} Signed in as {bot.user}")
     
-    with open(f"{directory}Snip.txt", encoding="utf8") as file:
-        song = file.readline()
-        temp = song
+    try:
+        with open(f"{directory}Snip.txt", encoding="utf8") as file:
+            song = file.readline()
+            temp = song
+    except FileNotFoundError:
+        print (f"{Back.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} Unable to retrieve music information (Snip.txt), ensure it is located in {directory}Snip.txt")
     
     while True:
         try:
@@ -60,7 +67,7 @@ async def on_ready():
                 temp = song
         except FileNotFoundError:
             # pass (ignore) if error but log to console
-            print (f"{Back.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} 'Snip.txt' not found in {directory}, check your Snip installation and try again.")
+            print (f"{Back.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} Unable to retrieve music information (Snip.txt), ensure it is located in {directory}Snip.txt")
             pass
         
         # await sleep
