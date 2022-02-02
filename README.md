@@ -40,7 +40,9 @@ a time elapsed is also calculated since the script was ran and will count up eve
 2. right click your server and **copy id**: ![image](https://user-images.githubusercontent.com/46572320/151660927-8cd92c92-1062-4f3e-9e9e-04315b0ca339.png)
 3. paste this as one of the entries in the `config.json` "servers" (if you add the bot to more servers, repeat this step):![image](https://user-images.githubusercontent.com/46572320/151660981-b9ebf3ca-8e51-4a2d-ba2d-ebb966493089.png)
 4. assuming you already have [**snip** set-up](https://github.com/dlrudie/Snip), put your bot's files into the same directory for ease of access
-5. then you should be able to run both `Snip.exe` and `main.py` and get everything working
+5. open `Snip.exe` then right-click, match the same options to ensure `/song` will work: ![image](https://user-images.githubusercontent.com/46572320/152219038-88400a6b-1c5b-4f66-9dd9-5f8034f2fbac.png)
+
+6. then you should be able to run `main.py` and get everything working
 
 to enable the time elapsed counter, head into the `config.json` and set `expose_listening` to `true`. restarting will apply the settings and show `Listening for x since x` when running `/song`
 
