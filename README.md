@@ -23,7 +23,7 @@ a time elapsed is also calculated since the script was ran and will count up eve
 
 - installed `discord`
 - installed `discord_slash`
-- installed `colorama` (2022.0201 +)
+- installed `colorama` (2022.0102 +)
 
 ### initial
 1. download the latest release and extract wherever you want, this will be the working directory for running your bot.
