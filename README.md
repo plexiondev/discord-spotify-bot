@@ -80,4 +80,4 @@ this once again appears to be an issue with local files and is out of my control
 
 any more issues contact **me first** before the creator of snip:
 
-[issues@plexion.dev](mailto:issues@plexion.dev) | [plexionfans@gmail.com](mailto:plexionfans@gmail.com)
+[send issues here](https://github.com/plexiondev/discord-spotify-bot/issues)
